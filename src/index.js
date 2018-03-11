@@ -9,18 +9,17 @@ module.exports = function longestConsecutiveLength(array) {
     return 1;
   }
   let array2 = [];
-  array.sort();
+  array.sort(function (a, b) {return a - b;});
   for (let i = 1; i < length; i++) {
-    while (array[i] <= array[i-1] + 1) {
+    let j = i;
+    while (array[j] === array[j-1] + 1) {
       counter++;
-      i++;
-    }
-    if (counter > 1) {
-      array2.push(counter);
+      j++;
     }
     i += counter;
+    array2.push(counter+1);
     counter = 0;
   }
-  array2.sort();
-  return array2[array2.length - 1];
+  array2.sort(function (a, b) {return b - a;});
+  return array2[0];
 }
