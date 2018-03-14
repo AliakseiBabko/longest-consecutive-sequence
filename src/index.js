@@ -17,7 +17,7 @@ module.exports = function longestConsecutiveLength(array) {
       j++;
     }
     i += counter;*/
-    while (array[j] === array[j-1]+1 || (array[j] === array[j-1] && array[j+1] === array[j]+1)) {
+    while (array[j] === array[j-1]+1 || (array[j] === array[j-1])) {
       if (array[j] === array[j-1]+1) {
         counter++;
       }
