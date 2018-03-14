@@ -12,11 +12,18 @@ module.exports = function longestConsecutiveLength(array) {
   array.sort(function (a, b) {return a - b;});
   for (let i = 1; i < length; i++) {
     let j = i;
-    while (array[j] === array[j-1] + 1) {
+    /*while (array[j] === array[j-1] + 1) {
       counter++;
       j++;
     }
-    i += counter;
+    i += counter;*/
+    while (array[j] === array[j-1]+1 || (array[j] === array[j-1] && array[j+1] === array[j]+1)) {
+      if (array[j] === array[j-1]+1) {
+        counter++;
+      }
+      j++;
+    }
+    i += j-i;
     array2.push(counter+1);
     counter = 0;
   }
